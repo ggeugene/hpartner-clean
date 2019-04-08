@@ -54,7 +54,7 @@ function service_custom_post_type() {
     $taxonomies = array();
     $taxonomies['taxonomy-service_cats'] = array(
       'labels' => array(
-        'name' => __( 'Категории Новостей', 'ggeugene' ),
+        'name' => __( 'Категории Услуг', 'ggeugene' ),
         'singular_name' => __( 'Категория Услуг', 'ggeugene' ),
         'search_items' =>  __( 'Найти категории Услуг', 'ggeugene' ),
         'all_items' => __( 'Все категории Услуг', 'ggeugene' ),
