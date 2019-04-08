@@ -76,7 +76,7 @@ function service_custom_post_type() {
   }
   add_action( 'init', 'service_custom_post_type' );
 
-  function get_posts_by_category($category_slug) {
+  function get_services_by_category($category_slug) {
     $string = '';
 
     $args = array(
@@ -96,20 +96,20 @@ function service_custom_post_type() {
 
     if($query->have_posts()) {
 
-        $string .= '<ul class="custom_post_list">';
+        $string .= '<ul class="custom-service-list">';
 
         foreach($query->posts as $post) {
-            $string .= '<li class="custom_post_item">';
+            $string .= '<li class="custom-service-list__item">';
             if(!empty(get_the_post_thumbnail_url($post->ID))) {
-                $string .= '<a class="custom_post_item-img_link" href="' . get_the_permalink($post->ID) . '" style="background-image:url(' . get_the_post_thumbnail_url($post->ID) . ')"></a>';
+                $string .= '<a class="custom-service-item__img-link" href="' . get_the_permalink($post->ID) . '" style="background-image:url(' . get_the_post_thumbnail_url($post->ID) . ')"></a>';
             } else {
-                $string .= '<a class="custom_post_item-img_link dummy_img" href="' . get_the_permalink($post->ID) . '" style="background-image:url(/wp-content/themes/divichild/img/dummy_image.png)"></a>'; 
+                $string .= '<a class="custom-service-item__img-link dummy-img" href="' . get_the_permalink($post->ID) . '" style="background-image:url(/wp-content/themes/divichild/img/dummy_image.png)"></a>'; 
             }
-            $string .= '<div class="custom_post_item-content_block">';
-            $string .= '<a class="custom_post_item-title_link" href="' . get_the_permalink($post->ID) . '">';
-            $string .= '<p class="custom_post_item-title">' . get_the_title($post->ID) . '</p></a>';
-            $string .= '<p class="custom_post_item-excerpt">' . get_the_excerpt($post->ID) . '</p>';
-            $string .= '<a class="custom_post_item-button et_pb_button et_pb_more_button" href="' . get_the_permalink($post->ID) . '">Подробнее</a>';
+            $string .= '<div class="custom-service-item__content-block">';
+            $string .= '<a class="custom-service-item__title-link" href="' . get_the_permalink($post->ID) . '">';
+            $string .= '<p class="custom-service-item__title">' . get_the_title($post->ID) . '</p></a>';
+            $string .= '<p class="custom-service-item__excerpt">' . get_the_excerpt($post->ID) . '</p>';
+            $string .= '<a class="custom-service-item__button" href="' . get_the_permalink($post->ID) . '">Подробнее</a>';
             $string .= '</div></li>';
         }
         
